@@ -14,9 +14,9 @@ import psycopg2
 import uuid
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
-model = load_model("model/gender_detection.keras")
+model = load_model("model/gender_detection.model")
 ibed = imgbeddings()
 classes = ["male", "female"]
 

@@ -8,7 +8,7 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv(override=True)
 
 conn = psycopg2.connect(os.environ["POSTGRES_URI"])
 
