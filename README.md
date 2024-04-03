@@ -7,10 +7,16 @@
 python -m venv .venv
 source .venv/bin/activate
 
-# Install dependencies
+# Install dependencies (for linux/mac)
 pip install -r requirements.txt
+
+# Install dependencies (for windows)
+pip install -r requirements.windows.txt
+
+# Download our pretrained model
+python download_model.py
 ```
 
 ## Model
 
-You can get the pretrained model from [https://drive.google.com/drive/folders/1R_rbJufb9hE7Q0dKcsidhs_BKafZW0vr?usp=sharing](https://drive.google.com/drive/folders/1R_rbJufb9hE7Q0dKcsidhs_BKafZW0vr?usp=sharing])
+You can get the pretrained model from [https://drive.google.com/file/d/15bs1HHfbVnimIWqy7wuGuZ7aJD6kUKZ6/view?usp=sharing](https://drive.google.com/file/d/15bs1HHfbVnimIWqy7wuGuZ7aJD6kUKZ6/view?usp=sharing)
