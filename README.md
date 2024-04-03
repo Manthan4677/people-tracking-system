@@ -2,6 +2,10 @@
 
 ## Running Instructions
 
+> [!INFO]
+>
+> Python version 3.11 is required
+
 ```sh
 # Setup virtual environment
 python -m venv .venv
