@@ -2,8 +2,7 @@
 
 ## Running Instructions
 
-> [!INFO]
->
+> [!IMPORTANT]
 > Python version 3.11 is required
 
 ```sh
