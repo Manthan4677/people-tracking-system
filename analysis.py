@@ -62,7 +62,7 @@ def plot_barchart(conn, sections: List[str]):
         WITH cte AS (
             SELECT MAX(time) - MIN(time) as time_spent, v.gender, v.age, vt.section FROM visit_times vt INNER JOIN visitors v ON (vt.id = v.id) GROUP BY vt.id, v.gender, v.age, vt.section
         )
-        SELECT time_spent, gender, age FROM cte WHERE section = %s ORDER BY age ASC;
+        SELECT AVG(time_spent), gender, age FROM cte WHERE section = %s GROUP BY gender, age ORDER BY age ASC;
         """
         curr.execute(sql, (section,))
         rows = curr.fetchall()
