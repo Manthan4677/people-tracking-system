@@ -74,19 +74,15 @@ def plot_barchart(conn, sections: List[str]):
         females = [row for row in rows if row[1] == "female"]
 
         for i, x in enumerate(X):
-            value = 0
             for male in males:
                 if male[2] == x:
-                    value = male[0].total_seconds()
+                    maleY[i] = male[0].total_seconds()
                     break
-            maleY[i] = value
 
-            value = 0
             for female in females:
                 if female[2] == x:
-                    value = female[0].total_seconds()
+                    femaleY[i] = female[0].total_seconds()
                     break
-            femaleY[i] = value
 
         X_axis = np.arange(len(X))
 
@@ -102,8 +98,9 @@ def plot_barchart(conn, sections: List[str]):
         ax[row, col].set_xlabel("Age Groups")
         ax[row, col].set_ylabel("Time spent")
         ax[row, col].legend()
-    if len(sections) % 2 == 1:
-        fig.delaxes(ax[len(sections) // cols, cols - 1])
+    if len(sections) % 2 != 0:
+        for i in range(len(sections) % cols, cols):
+            fig.delaxes(ax[len(sections) // cols, i])
 
     fig.tight_layout()
     fig.suptitle("Customer distribution by gender and age group")
