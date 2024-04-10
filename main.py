@@ -68,7 +68,6 @@ def age_detection(face, frame):
     startX, startY, endX, endY = face
     cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 255, 0), 2)
     face_crop = np.copy(frame[startY:endY, startX:endX])
-
     # Using https://huggingface.co/nateraw/vit-age-classifier
     inputs = age_transforms(face_crop, return_tensors="pt")
     output = age_model(**inputs)
@@ -76,7 +75,6 @@ def age_detection(face, frame):
     preds = proba.argmax(1)
     age_group = age_classes[preds[0]]
     return age_group
-
 
 def createImgbeddings(face, frame, section_name):
     for start_x, start_y, end_x, end_y in face:

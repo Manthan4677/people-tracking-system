@@ -9,9 +9,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv(override=True)
-
 conn = psycopg2.connect(os.environ["POSTGRES_URI"])
-
 
 def create_csv(conn):
     curr = conn.cursor()
@@ -111,7 +109,6 @@ def select_person_id(conn):
     curr = conn.cursor()
     curr.execute("SELECT id FROM visitors")
     rows = curr.fetchall()
-
     print("Select person: ")
     for i, row in enumerate(rows):
         print(f"[{i:2d}] {row[0]}")
